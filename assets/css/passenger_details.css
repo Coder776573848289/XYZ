@@ -1,0 +1,211 @@
+:root {
+    --color-dark: #2a4a68;
+    --color-secondary: #42688d;
+    --color-mid: #3a5a68;
+    --color-light: #4c6b6f;
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --color-accent: #5a8da8;
+    --color-success: #4c9e8f;
+    --color-error: #d45d79;
+    --text-dark: #2a3a4a;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: 20px;
+    background-image: linear-gradient(135deg, var(--bg-light) 0%, #e0e9f1 100%);
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-header {
+    background: linear-gradient(
+      135deg,
+      var(--color-dark) 0%,
+      var(--color-secondary) 100%
+    );
+    color: var(--text-color);
+    padding: 20px;
+    border-bottom: none;
+  }
+  
+  .card-body {
+    padding: 30px;
+  }
+  
+  h2 {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-mid);
+  }
+  
+  select,
+  input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+  
+  select:focus,
+  input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(90, 141, 168, 0.25);
+    outline: none;
+  }
+  
+  fieldset {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: rgba(249, 249, 249, 0.7);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  fieldset:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  fieldset::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      var(--color-dark),
+      var(--color-accent)
+    );
+  }
+  
+  legend {
+    padding: 0 10px;
+    font-weight: 600;
+    color: var(--color-dark);
+    width: auto;
+    font-size: 1.1rem;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      var(--color-accent) 100%
+    );
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-dark) 0%,
+      var(--color-secondary) 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 74, 104, 0.3);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .passenger-count {
+    margin-bottom: 30px;
+  }
+  
+  .passenger-count select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2342688d' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    appearance: none;
+  }
+  
+  .success-message {
+    display: none;
+    background-color: var(--color-success);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,182 @@
+:root {
+    --primary-color: var(--color-secondary); /* Steel Blue #42688d */
+    --success-color: var(--color-success); /* #4c9e8f */
+    --danger-color: var(--color-error); /* #d45d79 */
+    --warning-color: #fd7e14; /* Keeping original as not in your palette */
+    --info-color: var(--color-accent); /* #5a8da8 */
+    --light-color: var(--bg-light); /* #f9f9f9 */
+    --dark-color: var(--color-dark); /* Oxford Blue #2a4a68 */
+    --text-color: var(--text-color); /* #ffffff */
+  
+    /* Your color variables */
+    --color-dark: #2a4a68; /* Oxford Blue */
+    --color-secondary: #42688d; /* Steel Blue */
+    --color-mid: #3a5a68; /* Gunmetal */
+    --color-light: #4c6b6f; /* Teal-Grey */
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --color-accent: #5a8da8; /* Derived accent color */
+    --color-success: #4c9e8f; /* Success color */
+    --color-error: #d45d79; /* Error color */
+  }
+  
+  body {
+    background-color: var(--bg-light);
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333; /* Adding default text color */
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .table {
+    margin-bottom: 0;
+  }
+  
+  .table thead th {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: var(--color-mid); /* Using Gunmetal for header text */
+  }
+  
+  .table tbody tr {
+    transition: all 0.2s ease;
+  }
+  
+  .table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .table td,
+  .table th {
+    vertical-align: middle;
+    padding: 12px 15px;
+  }
+  
+  .badge {
+    font-weight: 500;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+  }
+  
+  .btn {
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    color: var(--text-color); /* White text for buttons */
+  }
+  
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+  }
+  
+  .btn-success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+  }
+  
+  .btn-danger {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+  }
+  
+  .btn-outline-secondary {
+    border-color: #dee2e6;
+    color: var(--color-dark); /* Oxford Blue for text */
+  }
+  
+  /* Status badge colors */
+  .bg-active {
+    background-color: var(--color-success) !important;
+  }
+  
+  .bg-inactive {
+    background-color: var(--color-error) !important;
+  }
+  
+  .bg-pending {
+    background-color: var(--warning-color) !important;
+  }
+  
+  .bg-scheduled {
+    background-color: var(--color-accent) !important; /* Using accent color */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+  
+    .table thead {
+      display: none;
+    }
+  
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .table tr {
+      margin-bottom: 15px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  
+    .table td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+      border-bottom: 1px solid #dee2e6;
+    }
+  
+    .table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      width: 45%;
+      padding-right: 10px;
+      font-weight: 600;
+      text-align: left;
+      color: var(--color-dark); /* Oxford Blue */
+    }
+  
+    .table td:last-child {
+      border-bottom: 0;
+    }
+  
+    .table td[data-label="Actions"] {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    body {
+      padding: 15px;
+    }
+  
+    .btn {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+  }

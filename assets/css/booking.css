@@ -1,0 +1,130 @@
+:root {
+    --color-dark: #2a4a68;
+    --color-secondary: #42688d;
+    --color-mid: #3a5a68;
+    --color-light: #4c6b6f;
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --color-accent: #5a8da8;
+    --color-success: #4c9e8f;
+    --color-error: #d45d79;
+    --text-dark: #2a3a4a;
+    --input-focus: rgba(90, 141, 168, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.navbar-custom {
+    background-color: var(--color-dark);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: var(--text-color);
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--color-secondary);
+    color: var(--text-color);
+    border-radius: 10px 10px 0 0 !important;
+    padding: 15px 20px;
+}
+
+.btn-primary-custom {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.btn-reset {
+    background-color: var(--color-light);
+    border-color: var(--color-light);
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: var(--color-mid);
+    border-color: var(--color-mid);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem var(--input-focus);
+}
+
+.status-paid {
+    color: var(--color-success);
+    font-weight: bold;
+}
+
+.status-unpaid {
+    color: var(--color-error);
+    font-weight: bold;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table thead th {
+    background-color: var(--color-dark);
+    color: var(--text-color);
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(90, 141, 168, 0.1);
+}
+
+.back-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--color-secondary);
+}
+
+.filter-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .filter-form .col-md-2, 
+    .filter-form .col-md-3, 
+    .filter-form .col-md-1 {
+        margin-bottom: 10px;
+    }
+    
+    .table th, .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

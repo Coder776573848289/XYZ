@@ -1,0 +1,448 @@
+:root {
+    --color-dark: #2A4A68;
+    --color-secondary: #42688D;
+    --color-mid: #3A5A68;
+    --color-light: #4C6B6F;
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --text-dark: #2a3a4a;
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: var(--color-dark);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  
+  .logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Hero Section */
+  .hero {
+    margin-top: 76px;
+  }
+  
+  .carousel {
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .carousel-item {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    bottom: 30%;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    left: 10%;
+    right: 10%;
+    padding: 30px;
+    background: rgba(42, 74, 104, 0.8);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-secondary);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-dark);
+    transform: translateY(-3px);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--text-color);
+    color: var(--color-dark);
+    transform: translateY(-3px);
+  }
+  
+  /* Section Styling */
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--color-dark), var(--color-secondary));
+    border-radius: 2px;
+  }
+  
+  .section-header p {
+    color: var(--color-mid);
+    font-size: 1.1rem;
+  }
+  
+  /* About Cards */
+  .about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+  
+  .about-card i {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+  }
+  
+  .about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-dark);
+  }
+  
+  /* Feature Cards */
+  .feature-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+  
+  .feature-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .feature-content {
+    padding: 25px;
+  }
+  
+  .feature-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--color-dark);
+  }
+  
+  /* Testimonials */
+  .testimonial {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  .testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+    border: 5px solid rgba(66, 104, 141, 0.2);
+  }
+  
+  .testimonial-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+  }
+  
+  .location {
+    color: var(--color-mid);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  
+  .stars {
+    color: #FFD700;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 60px 0 20px;
+  }
+  
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-brand img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  
+  .footer-brand span {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-secondary);
+  }
+  
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer ul li a:hover {
+    color: white;
+    padding-left: 5px;
+  }
+  
+  .contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info i {
+    margin-right: 10px;
+    color: var(--color-secondary);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-3px);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .carousel-caption {
+      bottom: 20%;
+    }
+    
+    .carousel-caption h1 {
+      font-size: 2rem;
+    }
+    
+    .testimonial {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .testimonial img {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-item {
+      height: 60vh;
+      min-height: 400px;
+    }
+    
+    .carousel-caption {
+      padding: 20px;
+      left: 5%;
+      right: 5%;
+    }
+    
+    .carousel-caption h1 {
+      font-size: 1.8rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .footer .col-md-4, 
+    .footer .col-md-3 {
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carousel-item {
+      height: 50vh;
+      min-height: 300px;
+    }
+    
+    .carousel-caption h1 {
+      font-size: 1.5rem;
+    }
+    
+    .carousel-caption p {
+      font-size: 1rem;
+    }
+    
+    .section-header h2 {
+      font-size: 1.8rem;
+    }
+  }

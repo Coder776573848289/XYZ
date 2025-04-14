@@ -1,0 +1,661 @@
+:root {
+    --color-dark: #2a4a68;
+    --color-secondary: #42688d;
+    --color-mid: #3a5a68;
+    --color-light: #4c6b6f;
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --color-accent: #5a8da8;
+    --color-success: #4c9e8f;
+    --color-error: #d45d79;
+    --text-dark: #2a3a4a;
+    --card-shadow: 0 12px 24px -6px rgba(42, 74, 104, 0.16);
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e6f0f5 100%);
+    min-height: 100vh;
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    color: var(--text-dark);
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  
+  .results-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .results-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-dark);
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .results-header h2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, var(--color-dark), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+  .results-header p {
+    font-size: 1.1rem;
+    color: var(--color-mid);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .results-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-success));
+    border-radius: 2px;
+  }
+  
+  .flight-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    border-left: 5px solid var(--color-accent);
+    position: relative;
+  }
+  
+  .flight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(90, 141, 168, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .flight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(42, 74, 104, 0.25);
+    border-left-color: var(--color-success);
+  }
+  
+  .flight-card:hover::before {
+    opacity: 1;
+  }
+  
+  .flight-header {
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-dark));
+    color: white;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .flight-header::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: rotate(30deg);
+  }
+  
+  .airline-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+  }
+  
+  .airline-logo {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+  }
+  
+  .flight-status {
+    background: var(--color-success);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-body {
+    padding: 25px;
+  }
+  
+  .route-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .route-line {
+    flex-grow: 1;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-light) 50%,
+      var(--color-accent) 100%
+    );
+    margin: 0 25px;
+    position: relative;
+    border-radius: 3px;
+    background-size: 200% 100%;
+    animation: gradientFlow 4s linear infinite;
+  }
+  
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+  
+  .route-line::before {
+    content: "✈";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: planeMove 3s linear infinite;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  }
+  
+  @keyframes planeMove {
+    0% {
+      left: 0;
+      transform: translateY(-50%) rotate(0deg);
+    }
+    50% {
+      left: 100%;
+      transform: translateY(-50%) rotate(360deg);
+    }
+    100% {
+      left: 0;
+      transform: translateY(-50%) rotate(720deg);
+    }
+  }
+  
+  .location {
+    text-align: center;
+    min-width: 140px;
+  }
+  
+  .location-code {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .location-code::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-success));
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .location:hover .location-code::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .location-name {
+    font-size: 0.95rem;
+    color: var(--color-mid);
+    font-weight: 500;
+  }
+  
+  .time-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background: rgba(66, 104, 141, 0.03);
+    border-radius: 10px;
+    padding: 15px;
+  }
+  
+  .time-block {
+    text-align: center;
+    padding: 0 15px;
+    flex: 1;
+  }
+  
+  .time-label {
+    font-size: 0.95rem;
+    color: var(--color-mid);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .time-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 3px;
+  }
+  
+  .time-date {
+    color: var(--color-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .duration {
+    text-align: center;
+    color: var(--color-light);
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .duration::before,
+  .duration::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-light),
+      transparent
+    );
+  }
+  
+  .seats-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .seat-class {
+    flex: 1;
+    min-width: 220px;
+    background: rgba(66, 104, 141, 0.03);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(66, 104, 141, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .seat-class:hover {
+    background: rgba(90, 141, 168, 0.08);
+    transform: translateY(-5px);
+    border-color: rgba(90, 141, 168, 0.3);
+    box-shadow: 0 8px 20px -10px rgba(66, 104, 141, 0.2);
+  }
+  
+  .seat-class.popular::after {
+    content: "Popular";
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    background: var(--color-success);
+    color: white;
+    padding: 3px 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(76, 158, 143, 0.3);
+  }
+  
+  .class-name {
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .class-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+  }
+  
+  .class-price small {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-mid);
+  }
+  
+  .class-availability {
+    font-size: 0.95rem;
+    color: var(--color-mid);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .availability-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+  }
+  
+  .availability-dot.limited {
+    background: #ffa500;
+  }
+  
+  .availability-dot.low {
+    background: var(--color-error);
+  }
+  
+  .book-btn {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      var(--color-dark) 100%
+    );
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin: 30px auto 0;
+    width: fit-content;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    box-shadow: 0 8px 20px -5px rgba(42, 74, 104, 0.3);
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .book-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px -5px rgba(42, 74, 104, 0.4);
+    background: linear-gradient(
+      135deg,
+      var(--color-success) 0%,
+      var(--color-accent) 100%
+    );
+    color: white;
+  }
+  
+  .book-btn:active {
+    transform: translateY(1px);
+  }
+  
+  .no-results {
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .no-results::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-error));
+  }
+  
+  .no-results-icon {
+    font-size: 3.5rem;
+    color: var(--color-light);
+    margin-bottom: 25px;
+    opacity: 0.8;
+  }
+  
+  .no-results h3 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+  
+  .no-results p {
+    color: var(--color-mid);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(90, 141, 168, 0.1);
+  }
+  
+  .back-link:hover {
+    color: var(--color-dark);
+    transform: translateX(-5px);
+    background: rgba(90, 141, 168, 0.2);
+  }
+  
+  .filter-bar {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 30px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .filter-label {
+    font-weight: 600;
+    color: var(--color-mid);
+    margin-right: 10px;
+  }
+  
+  .filter-option {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(66, 104, 141, 0.05);
+    border: 1px solid rgba(66, 104, 141, 0.1);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-option:hover {
+    background: rgba(90, 141, 168, 0.1);
+  }
+  
+  .filter-option.active {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+  
+  .sort-options {
+    margin-left: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .results-header h2 {
+      font-size: 1.8rem;
+    }
+  
+    .route-info {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .route-line {
+      width: 3px;
+      height: 60px;
+      margin: 15px 0;
+    }
+  
+    .route-line::before {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%) rotate(90deg);
+      animation: planeMoveMobile 3s linear infinite;
+    }
+  
+    @keyframes planeMoveMobile {
+      0% {
+        top: 0;
+        transform: translateX(-50%) rotate(90deg);
+      }
+      50% {
+        top: 100%;
+        transform: translateX(-50%) rotate(450deg);
+      }
+      100% {
+        top: 0;
+        transform: translateX(-50%) rotate(810deg);
+      }
+    }
+  
+    .time-info {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .seat-class {
+      min-width: 100%;
+    }
+  
+    .filter-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .sort-options {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+  
+  /* Animation for flight cards */
+  .flight-card {
+    animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Ripple effect */
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* Price trend indicator */
+  .price-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.85rem;
+    margin-left: 8px;
+  }
+  
+  .trend-up {
+    color: var(--color-error);
+  }
+  
+  .trend-down {
+    color: var(--color-success);
+  }

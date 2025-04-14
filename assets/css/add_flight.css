@@ -1,0 +1,185 @@
+:root {
+    --color-dark: #2a4a68;
+    --color-secondary: #42688d;
+    --color-mid: #3a5a68;
+    --color-light: #4c6b6f;
+    --text-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --color-accent: #5a8da8;
+    --color-success: #4c9e8f;
+    --color-error: #d45d79;
+    --text-dark: #2a3a4a;
+    --input-focus: rgba(90, 141, 168, 0.2);
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: 20px;
+  }
+  
+  .form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-header {
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--color-accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-header h2 {
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .form-header i {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--color-mid);
+  }
+  
+  .form-control,
+  .form-select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem var(--input-focus);
+  }
+  
+  .btn-submit {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .btn-submit:hover {
+    background-color: var(--color-dark);
+    transform: translateY(-2px);
+  }
+  
+  .btn-submit:active {
+    transform: translateY(0);
+  }
+  
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color-dark);
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-dark);
+  }
+  
+  .btn-back:hover {
+    background-color: var(--color-dark);
+    color: white;
+    text-decoration: none;
+  }
+  
+  .price-input-group {
+    position: relative;
+  }
+  
+  .price-input-group::before {
+    content: "₹";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--color-dark);
+    z-index: 10;
+  }
+  
+  .price-input {
+    padding-left: 30px !important;
+  }
+  
+  .row {
+    margin-bottom: 15px;
+  }
+  
+  .section-title {
+    color: var(--color-dark);
+    font-weight: 600;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 20px;
+    }
+  
+    .form-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .form-header h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Custom validation styling */
+  .is-invalid {
+    border-color: var(--color-error) !important;
+  }
+  
+  .invalid-feedback {
+    color: var(--color-error);
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
